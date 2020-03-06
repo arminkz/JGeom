@@ -1,4 +1,4 @@
-package jgeom.Skeleton;
+package jgeom.skeleton;
 
 import jgeom.basic.Line2D;
 
