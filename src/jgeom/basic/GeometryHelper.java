@@ -207,7 +207,21 @@ public final class GeometryHelper {
         }
     }
 
-    public static double getDistance(Point2D p1, Point2D p2) {
+    public static double distance(Point2D p, Line2D l) {
+        double a = p.getX() - l.getOrigin().getX(); // position of point rel one end of line
+        double b = p.getY() - l.getOrigin().getY();
+        double c = l.getDirection().getX(); // vector along line
+        double d = l.getDirection().getY();
+        double e = -d; // orthogonal vector
+        double f = c;
+
+        double dot = a * e + b * f;
+        double len_sq = e*e + f*f;
+
+        return Math.abs(dot) / Math.sqrt(len_sq);
+    }
+
+    public static double distance(Point2D p1, Point2D p2) {
         return Math.hypot(p1.getX() - p2.getX(), p1.getY() - p2.getY());
     }
 
